@@ -13,8 +13,7 @@ public class CoinManager : MonoBehaviour
     [SerializeField] private int rotationMin, rotationMax;
     [SerializeField] private Text coinNum;
     int coinAllNum;
-    private int coinCount;
-
+    private int coinCount = 0;
     private  List<Image> coins = new List<Image>();
 
     public int CoinCount
@@ -50,10 +49,11 @@ public class CoinManager : MonoBehaviour
             coins.Add(ima);
         }
         coinAllNum = numRandom;
+        
     }
+    
     public void UpdateCounter()
     {
-        int o = CoinCount - 1;
-        coinNum.DOCounter(CoinCount,CoinCount,0.2f);
+        coinNum.DOCounter(CoinCount-coinAllNum, CoinCount, 0.2f);
     }
 }
